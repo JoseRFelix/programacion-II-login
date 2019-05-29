@@ -12,13 +12,19 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.programacion_ii_login.data.model.Agent;
 import com.programacion_ii_login.R;
 
 public class ListView extends AppCompatActivity {
 
     public ListView listView;
-    String title[] = {"Mayor Monograma", "Perry the Platypus", "Pinky the Dog", "Peter the Panda"};
-    String sTitle[] = {"Monograma", "Agente", "Agente", "Agente"};
+    Agent agents[] = {new Agent("Mayor Monograma", "Monograma"),
+            new Agent("Perry the Platypus", "Agente"),
+            new Agent("Pinky the Dog", "Agente"),
+            new Agent("Peter the Panda", "Agente")};
+
+    String sTitle[] = {"Monograma", "Agente"};
+
     int images[] = {R.drawable.mm, R.drawable.perry, R.drawable.pinky, R.drawable.peter};
 
     @Override
@@ -26,17 +32,14 @@ public class ListView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view);
 
-        listView = findViewById(android.R.id.listView); //POR QUE ESTA TAN RARA
+        listView = findViewById(android.R.id.listView);
 
         new MyAdapter(this, title, sTitle, images);
-
-        listView.
-
     }
 
     class MyAdapter extends ArrayAdapter<String> {
 
-        Context context;//WHATS CONTEXT
+        Context context;
         String rTitle[];
         String rDescription[];
         int rImages[];
@@ -49,7 +52,7 @@ public class ListView extends AppCompatActivity {
             this.rImages = images;
 
         }
-//NO ENTIENDOOOOO
+
         @NonNull
         @Override
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
