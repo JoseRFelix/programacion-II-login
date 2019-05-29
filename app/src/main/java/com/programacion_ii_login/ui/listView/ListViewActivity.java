@@ -33,9 +33,14 @@ public class ListViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view);
 
-        listView = (ListView) findViewById(R.id.listView);
+        String[] agentsNames = new String[agents.length];
 
-        new MyAdapter(this, title, sTitle, images);
+        for (int i = 0; i < agents.length; i++)
+            agentsNames[i] = agents[i].getName();
+
+        listView = findViewById(R.id.listView);
+
+        new MyAdapter(this, agentsNames, sTitle, images);
     }
 
     class MyAdapter extends ArrayAdapter<String> {
