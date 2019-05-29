@@ -10,14 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.programacion_ii_login.data.model.Agent;
 import com.programacion_ii_login.R;
 
-public class ListView extends AppCompatActivity {
+public class ListViewActivity extends AppCompatActivity {
 
-    public ListView listView;
+    ListView listView;
     Agent agents[] = {new Agent("Mayor Monograma", "Monograma"),
             new Agent("Perry the Platypus", "Agente"),
             new Agent("Pinky the Dog", "Agente"),
@@ -32,7 +33,7 @@ public class ListView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view);
 
-        listView = findViewById(android.R.id.listView);
+        listView = (ListView) findViewById(R.id.listView);
 
         new MyAdapter(this, title, sTitle, images);
     }
