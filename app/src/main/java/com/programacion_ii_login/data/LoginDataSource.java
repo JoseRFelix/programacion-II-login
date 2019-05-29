@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.util.Log;
+
 /**
  * Class that handles authentication w/ login credentials and retrieves user information.
  */
@@ -22,16 +24,18 @@ public class LoginDataSource {
     public Result<LoggedInUser> login(String username, String password) {
 
         try {
-            if(users.containsKey(username)){
-                User user = users.get(username);
+            if(this.users.containsKey(username)){
+                User user = this.users.get(username);
 
-                if (user.getPassword() == password) {
+                if (user.getPassword().equals(password)) {
+                    Log.d("LOGIN AUTHENTICATION", user.getUserId().toString());
                     LoggedInUser loggedInUser = new LoggedInUser(user.getUserId(), user.getDisplayName());
                     return new Result.Success<>(loggedInUser);
                 }
+                return new Result.Error(new IOException("Incorrect password", new NullPointerException()));
             }
 
-            return  new Result.Error(new IOException("Could'nt find user", new NullPointerException()));
+            return new Result.Error(new IOException("Could'nt find user", new NullPointerException()));
         } catch (Exception e) {
             return new Result.Error(new IOException("Error logging in", e));
 
