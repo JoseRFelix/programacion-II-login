@@ -126,8 +126,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
+        final EditText usernameEditText = findViewById(R.id.username);
+        final EditText passwordEditText = findViewById(R.id.password);
+
         Intent listViewIntent = new Intent(LoginActivity.this, ListViewActivity.class);
         LoginActivity.this.startActivity(listViewIntent);
+
+        usernameEditText.getText().clear();
+        passwordEditText.getText().clear();
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {

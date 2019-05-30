@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import android.util.Log;
-
 /**
  * Class that handles authentication w/ login credentials and retrieves user information.
  */
@@ -39,9 +37,5 @@ public class LoginDataSource {
             return new Result.Error(new IOException("Error logging in", e));
 
         }
-    }
-
-    public void logout() {
-        // TODO: revoke authentication
     }
 }
