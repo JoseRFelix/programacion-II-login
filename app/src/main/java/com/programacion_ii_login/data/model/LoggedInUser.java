@@ -5,15 +5,15 @@ package com.programacion_ii_login.data.model;
  */
 public class LoggedInUser {
 
-    private Integer userId;
+    private String userId;
     private String displayName;
 
-    public LoggedInUser(Integer userId, String displayName) {
+    public LoggedInUser(String userId, String displayName) {
         this.userId = userId;
         this.displayName = displayName;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 

@@ -1,11 +1,8 @@
 package com.programacion_ii_login.ui.login;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
@@ -22,7 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.programacion_ii_login.R;
-import com.programacion_ii_login.ui.listView.ListViewActivity;
+import com.programacion_ii_login.ui.login.LoginViewModel;
+import com.programacion_ii_login.ui.login.LoginViewModelFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -38,7 +36,6 @@ public class LoginActivity extends AppCompatActivity {
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
-        final Button cleanButton = findViewById(R.id.clean);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
@@ -72,6 +69,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 setResult(Activity.RESULT_OK);
 
+                //Complete and destroy login activity once successful
+                finish();
             }
         });
 
@@ -114,48 +113,15 @@ public class LoginActivity extends AppCompatActivity {
                         passwordEditText.getText().toString());
             }
         });
-
-        //Clean input values on click
-        cleanButton.setOnClickListener(new View.OnClickListener()  {
-            @Override
-            public void onClick(View v) {
-                usernameEditText.getText().clear();
-                passwordEditText.getText().clear();
-            }
-        });
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
-        final EditText usernameEditText = findViewById(R.id.username);
-        final EditText passwordEditText = findViewById(R.id.password);
-
-        Intent listViewIntent = new Intent(LoginActivity.this, ListViewActivity.class);
-        LoginActivity.this.startActivity(listViewIntent);
-
-        usernameEditText.getText().clear();
-        passwordEditText.getText().clear();
+        String welcome = getString(R.string.welcome) + model.getDisplayName();
+        // TODO : initiate successful logged in experience
+        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {
-
-        if (errorString.equals(R.string.login_failed)) {
-
-           AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
-
-            dlgAlert.setMessage("Revisar usuario o contraseña");
-            dlgAlert.setTitle("Aviso");
-            dlgAlert.setPositiveButton("OK", null);
-            dlgAlert.setCancelable(true);
-            dlgAlert.create().show();
-
-            dlgAlert.setPositiveButton("Ok",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-        } else {
-            Toast.makeText(getApplicationContext(), "Error inesperado: " + errorString, Toast.LENGTH_SHORT).show();
-        }
+        Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
 }
