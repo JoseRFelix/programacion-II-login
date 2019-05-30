@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.programacion_ii_login.R;
+import com.programacion_ii_login.ui.listView.ListViewActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -124,9 +126,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
-        String welcome = getString(R.string.welcome) + model.getDisplayName();
-        // TODO : initiate successful logged in experience
-        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+        Intent listViewIntent = new Intent(LoginActivity.this, ListViewActivity.class);
+        LoginActivity.this.startActivity(listViewIntent);
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {

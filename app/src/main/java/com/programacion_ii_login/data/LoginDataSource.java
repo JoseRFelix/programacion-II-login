@@ -28,7 +28,6 @@ public class LoginDataSource {
                 User user = this.users.get(username);
 
                 if (user.getPassword().equals(password)) {
-                    Log.d("LOGIN AUTHENTICATION", user.getUserId().toString());
                     LoggedInUser loggedInUser = new LoggedInUser(user.getUserId(), user.getDisplayName());
                     return new Result.Success<>(loggedInUser);
                 }

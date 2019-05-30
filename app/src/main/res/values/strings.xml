@@ -6,9 +6,11 @@
     <string name="action_sign_in">Entrar</string>
     <string name="action_clean">Limpiar</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>   
-    <string name="title_activity_list_view">ListView</string>
+    <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Nombre de usuario no valido</string>
     <string name="invalid_password">La contraseña debe ser más larga de 2 caracteres</string>
     <string name="login_failed">"Revisar su usario y contraseña"</string>
+
+    <!-- Strings related to ListView -->
+    <string name="title_activity_list_view">Miembros</string>
 </resources>
