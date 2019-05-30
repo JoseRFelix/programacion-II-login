@@ -8,10 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.programacion_ii_login.data.model.Agent;
 import com.programacion_ii_login.R;
@@ -20,8 +22,9 @@ public class ListViewActivity extends AppCompatActivity {
 
     ListView listView;
     Agent agents[] = {new Agent("Mayor Monograma", "Monograma"),
+            new Agent("Carl", "Asistente"),
             new Agent("Perry the Platypus", "Agente"),
-            new Agent("Pinky the Dog", "Agente"),
+            new Agent("Pinky the Chihuahua", "Agente"),
             new Agent("Peter the Panda", "Agente")};
 
     String sTitle[] = {"Monograma", "Agente"};
@@ -40,7 +43,30 @@ public class ListViewActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.listView);
 
-        new MyAdapter(this, agentsNames, sTitle, images);
+        MyAdapter adapter = new MyAdapter(this, agentsNames, sTitle, images);
+
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {
+                    Toast.makeText(ListViewActivity.this, "Monograma", Toast.LENGTH_SHORT).show();
+                }
+                if (position == 0) {
+                    Toast.makeText(ListViewActivity.this, "Asistente", Toast.LENGTH_SHORT).show();
+                }
+                if (position == 0) {
+                    Toast.makeText(ListViewActivity.this, "Agente", Toast.LENGTH_SHORT).show();
+                }
+                if (position == 0) {
+                    Toast.makeText(ListViewActivity.this, "Agente", Toast.LENGTH_SHORT).show();
+                }
+                if (position == 0) {
+                    Toast.makeText(ListViewActivity.this, "Agente", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     class MyAdapter extends ArrayAdapter<String> {
