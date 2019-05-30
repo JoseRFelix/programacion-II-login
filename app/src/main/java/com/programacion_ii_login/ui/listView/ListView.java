@@ -26,7 +26,7 @@ public class ListView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view);
 
-        listView = findViewById(R.id.listView); //POR QUE ESTA TAN RARA
+        listView = findViewById(android.R.id.listView); //POR QUE ESTA TAN RARA
 
         new MyAdapter(this, title, sTitle, images);
 
