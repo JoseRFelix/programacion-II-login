@@ -1,5 +1,6 @@
 package com.programacion_ii_login.ui.listView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -12,14 +13,16 @@ import android.support.v7.widget.Toolbar;
 
 import com.programacion_ii_login.data.model.Agent;
 import com.programacion_ii_login.R;
+import com.programacion_ii_login.ui.memberView.MemberViewActivity;
+
 
 public class ListViewActivity extends AppCompatActivity {
     ListView listView;
-    Agent[] agents = {new Agent("Mayor Monograma", "Monograma", R.drawable.mm),
-            new Agent("Carl", "Asistente", R.drawable.carl),
-            new Agent("Perry the Platypus", "Agente", R.drawable.perry),
-            new Agent("Pinky the Chihuahua", "Agente", R.drawable.pinky),
-            new Agent("Peter the Panda", "Agente", R.drawable.peter)};
+    Agent[] agents = {new Agent("Mayor Monograma", "Monograma", R.drawable.mm, 130, 70, 60, "+1 809 458 9641", "mmg@gmail.com", "Fantino Falco #55"),
+            new Agent("Carl", "Asistente", R.drawable.carl, 10, 0, 10, "+1 829 145 4876", "elpalomo@gmail.com", "Fantino Falco #68"),
+            new Agent("Perry the Platypus", "Agente", R.drawable.perry, 300, 300, 0, "+1 829 854 7441", "agentep@gmail.com", "Agustin Lara #38"),
+            new Agent("Pinky the Chihuahua", "Agente", R.drawable.pinky, 180, 120, 60, "+1 849 555 2525", "turealpinky@gmail.com", "David Masalles #39"),
+            new Agent("Peter the Panda", "Agente", R.drawable.peter, 200, 100, 100, "+1 809 685 2541", "elpanda@gmail.com", "Fantino Falco #67")};
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -35,10 +38,7 @@ public class ListViewActivity extends AppCompatActivity {
                 return true;
 
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
-
         }
     }
 
@@ -58,21 +58,9 @@ public class ListViewActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) {
-                    Toast.makeText(ListViewActivity.this, "Monograma", Toast.LENGTH_SHORT).show();
-                }
-                if (position == 1) {
-                    Toast.makeText(ListViewActivity.this, "Asistente", Toast.LENGTH_SHORT).show();
-                }
-                if (position == 2) {
-                    Toast.makeText(ListViewActivity.this, "Agente", Toast.LENGTH_SHORT).show();
-                }
-                if (position == 3) {
-                    Toast.makeText(ListViewActivity.this, "Agente", Toast.LENGTH_SHORT).show();
-                }
-                if (position == 4) {
-                    Toast.makeText(ListViewActivity.this, "Agente", Toast.LENGTH_SHORT).show();
-                }
+                Intent memberIntent = new Intent(ListViewActivity.this, MemberViewActivity.class);
+                memberIntent.putExtra("Agent", agents[position]);
+                startActivity(memberIntent);
             }
         });
     }
