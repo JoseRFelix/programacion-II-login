@@ -5,15 +5,12 @@
     <string name="prompt_password">Introduzca Contraseña</string>
     <string name="action_sign_in">Entrar</string>
     <string name="action_clean">Limpiar</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
-    <string name="title_activity_perfilmonograma">perfilmonograma</string>
-    <!--
-    This string is used for square devices and overridden by hello_world in
-    values-round/strings.xml for round devices.
-    -->
-    <string name="hello_world">Hello Square World!</string>
+    <string name="action_sign_in_short">Iniciar Sesión</string>
+    <string name="action_logout">Cerrar sesión</string>
+    <string name="invalid_username">Nombre de usuario no valido</string>
+    <string name="invalid_password">La contraseña debe ser más larga de 2 caracteres</string>
+    <string name="login_failed">"Revisar su usario y contraseña"</string>
+
+    <!-- Strings related to ListView -->
+    <string name="title_activity_list_view">Miembros</string>
 </resources>
