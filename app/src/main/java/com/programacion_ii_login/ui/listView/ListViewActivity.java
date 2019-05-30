@@ -27,9 +27,9 @@ public class ListViewActivity extends AppCompatActivity {
             new Agent("Pinky the Chihuahua", "Agente"),
             new Agent("Peter the Panda", "Agente")};
 
-    String sTitle[] = {"Monograma", "Agente"};
+    String sTitle[] = {"Monograma", "Asistente", "Agente"};
 
-    int images[] = {R.drawable.mm, R.drawable.perry, R.drawable.pinky, R.drawable.peter};
+    int images[] = {R.drawable.mm, R.drawable.Carl, R.drawable.perry, R.drawable.pinky, R.drawable.peter};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
