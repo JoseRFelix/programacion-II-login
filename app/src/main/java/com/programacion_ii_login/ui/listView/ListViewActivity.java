@@ -24,7 +24,7 @@ public class ListViewActivity extends AppCompatActivity {
     Agent[] agents = {
             new Agent("Mayor Monograma", "Monograma", R.drawable.mm, 130, 70, 60, "+1 809 458 9641", "mmg@gmail.com", "Fantino Falco #55, Santo Domingo, República Dominicana", createMap(18.476579, -69.929629)),
             new Agent("Carl", "Asistente", R.drawable.carl, 10, 0, 10, "+1 829 145 4876", "elpalomo@gmail.com", "Fantino Falco #68, Santo Domingo, República Dominicana", createMap(18.476485, -69.934362)),
-            new Agent("Perry the Platypus", "Agente", R.drawable.perry, 300, 300, 0, "+1 829 854 7441", "agentep@gmail.com", "Agustin Lara #77, Santo Domingo, República Dominicana", createMap(18.476614, -69.934526)),
+            new Agent("Perry the Platypus", "Agente", R.drawable.perry, 300, 300, 0, "+1 829 854 7441", "agentep@gmail.com", "Agustin Lara #38, Santo Domingo, República Dominicana", createMap(18.477121, -69.933957)),
             new Agent("Pinky the Chihuahua", "Agente", R.drawable.pinky, 180, 120, 60, "+1 849 555 2525", "turealpinky@gmail.com", "David Masalles #39, Santo Domingo, República Dominicana", createMap(18.472926,-69.947686)),
             new Agent("Peter the Panda", "Agente", R.drawable.peter, 200, 100, 100, "+1 809 685 2541", "elpanda@gmail.com", "Fantino Falco #75, Santo Domingo, República Dominicana", createMap(18.476592,-69.934382))
     };
