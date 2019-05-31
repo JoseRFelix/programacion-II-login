@@ -33,6 +33,7 @@ public class MemberViewActivity extends AppCompatActivity{
 
         final TextView emailText = findViewById(R.id.emailText);
         final TextView phoneText = findViewById(R.id.phoneText);
+        final TextView addressText = findViewById(R.id.addressText);
 
         final Button backButton = findViewById(R.id.member_back_button);
 
@@ -46,6 +47,7 @@ public class MemberViewActivity extends AppCompatActivity{
 
         emailText.setText(agent.getEmail());
         phoneText.setText(agent.getPhone());
+        addressText.setText(agent.getAddress());
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
