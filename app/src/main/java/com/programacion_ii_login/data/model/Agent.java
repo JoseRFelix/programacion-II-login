@@ -1,6 +1,7 @@
 package com.programacion_ii_login.data.model;
 
 import java.io.Serializable;
+import java.util.Map;
 
 public class Agent implements Serializable {
     private String name;
@@ -12,8 +13,9 @@ public class Agent implements Serializable {
     private String phone;
     private String email;
     private String address;
+    private Map<String, Double> coordinates;
 
-    public Agent(String name, String title, int image, int missions, int success, int fails, String phone, String email, String address) {
+    public Agent(String name, String title, int image, int missions, int success, int fails, String phone, String email, String address, Map<String, Double> coordinates) {
         this.name = name;
         this.title = title;
         this.image = image;
@@ -23,6 +25,7 @@ public class Agent implements Serializable {
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.coordinates = coordinates;
     }
 
     public String getName() {
@@ -41,8 +44,10 @@ public class Agent implements Serializable {
         return email;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAddress() {return address;}
+
+    public Map<String, Double> getCoordinates() {
+        return coordinates;
     }
 
     public int getMissions() {

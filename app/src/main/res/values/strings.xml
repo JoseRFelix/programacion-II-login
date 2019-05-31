@@ -13,6 +13,7 @@
 
     <!-- Strings related to ListView -->
     <string name="title_activity_list_view">Miembros</string>
+
+    <!-- Strings related to Maps -->
     <string name="title_activity_maps">Map</string>
-    <string name="title_activity_pinky_maps">Map</string>
 </resources>

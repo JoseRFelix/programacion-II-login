@@ -30,8 +30,11 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name=".ui.maps.MapsActivity"
             android:label="@string/title_activity_maps"></activity>
+        <activity
+            android:name=".ui.maps.MapsActivity"
+            android:label="@string/title_activity_maps" />
         <activity
             android:name=".PinkyMaps"
             android:label="@string/title_activity_pinky_maps" />

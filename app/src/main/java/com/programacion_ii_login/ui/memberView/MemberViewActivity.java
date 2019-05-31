@@ -1,5 +1,6 @@
 package com.programacion_ii_login.ui.memberView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.programacion_ii_login.R;
 import com.programacion_ii_login.data.model.Agent;
+import com.programacion_ii_login.ui.maps.MapsActivity;
 
 import org.w3c.dom.Text;
 
@@ -22,7 +24,7 @@ public class MemberViewActivity extends AppCompatActivity{
         Toolbar myToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
 
-        Agent agent = (Agent) getIntent().getSerializableExtra("Agent");
+        final Agent agent = (Agent) getIntent().getSerializableExtra("Agent");
 
         final ImageView memberPicture = findViewById(R.id.memberPicture);
 
@@ -36,6 +38,7 @@ public class MemberViewActivity extends AppCompatActivity{
         final TextView addressText = findViewById(R.id.addressText);
 
         final Button backButton = findViewById(R.id.member_back_button);
+        final Button mapButton = findViewById(R.id.member_open_map);
 
 
         memberPicture.setImageResource(agent.getImage());
@@ -53,6 +56,14 @@ public class MemberViewActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mapIntent = new Intent(v.getContext(), MapsActivity.class);
+                mapIntent.putExtra("Agent", agent);
+                startActivity(mapIntent);
             }
         });
 
