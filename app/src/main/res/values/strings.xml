@@ -16,4 +16,8 @@
 
     <!-- Strings related to Maps -->
     <string name="title_activity_maps">Map</string>
+
+    <!--Strings related to Auth0-->
+    <string name="com_auth0_client_id">B5MNAQUkNqBzCXo55rG9Au1GSV4vdCse</string>
+    <string name="com_auth0_domain">jfelx.auth0.com</string>
 </resources>
